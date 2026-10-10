@@ -30,6 +30,7 @@ npm install
 ## Running Locally
 ```bash
 npm run dev      # then open the printed http://localhost:5173
+double-click on "run.bat"
 npm run build    # production build in /dist
 ```
 
