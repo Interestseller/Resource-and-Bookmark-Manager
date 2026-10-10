@@ -19,23 +19,29 @@ Students and developers save hundreds of links and then can't find them. This ap
 
 ### Analytics Dashboard
 
-**Dark Mode**
-
-![Analytics Dashboard - Dark Mode](./screenshot/analytics-dark.png)
-
-**Light Mode**
-
-![Analytics Dashboard - Light Mode](./screenshot/analytics-light.png)
+<table>
+  <tr>
+    <th>Dark Mode</th>
+    <th>Light Mode</th>
+  </tr>
+  <tr>
+    <td><img src="./screenshot/analytics-dark.png" alt="Analytics Dashboard - Dark Mode" width="100%"></td>
+    <td><img src="./screenshot/analytics-light.png" alt="Analytics Dashboard - Light Mode" width="100%"></td>
+  </tr>
+</table>
 
 ### Main Dashboard
 
-**Dark Mode**
-
-![Main Dashboard - Dark Mode](./screenshot/dashboard-dark.png)
-
-**Light Mode**
-
-![Main Dashboard - Light Mode](./screenshot/dashboard-light.png)
+<table>
+  <tr>
+    <th>Dark Mode</th>
+    <th>Light Mode</th>
+  </tr>
+  <tr>
+    <td><img src="./screenshot/dashboard-dark.png" alt="Main Dashboard - Dark Mode" width="100%"></td>
+    <td><img src="./screenshot/dashboard-light.png" alt="Main Dashboard - Light Mode" width="100%"></td>
+  </tr>
+</table>
 
 ## Tech Stack
 React 18, Vite, React Router (HashRouter), Tailwind CSS v4, Recharts, Lucide React, localStorage.
