@@ -16,7 +16,7 @@ Students and developers save hundreds of links and then can't find them. This ap
 - JSON/CSV export, JSON import, light/dark mode, responsive (bottom nav on mobile)
 
 ## Screenshots
-_Add screenshots here: `docs/dashboard.png`, `docs/analytics.png`_
+(screenshot\analytics-dark.png)
 
 ## Tech Stack
 React 18, Vite, React Router (HashRouter), Tailwind CSS v4, Recharts, Lucide React, localStorage.
