@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+@layer components {
+  .input { @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:outline-2 focus:outline-indigo-500 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100; }
+  .btn { @apply inline-flex items-center justify-center gap-1 rounded-lg bg-indigo-600 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500; }
+  .btn-ghost { @apply inline-flex items-center justify-center gap-1 rounded-lg border border-slate-300 px-3 py-2 text-sm hover:bg-slate-100 dark:border-slate-600 dark:hover:bg-slate-800; }
+  .card { @apply rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-900; }
+  .chip { @apply rounded-full px-2 py-0.5 text-xs; }
+}
