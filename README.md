@@ -47,6 +47,7 @@ Students and developers save hundreds of links and then can't find them. This ap
 React 18, Vite, React Router (HashRouter), Tailwind CSS v4, Recharts, Lucide React, localStorage.
 
 ## Installation
+NodeJS : https://nodejs.org/en/download
 Requires Node.js 18+.
 ```bash
 npm install
