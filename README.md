@@ -50,6 +50,8 @@ React 18, Vite, React Router (HashRouter), Tailwind CSS v4, Recharts, Lucide Rea
 Requires Node.js 18+.
 ```bash
 npm install
+OR
+double-click on "install.bat"
 ```
 
 ## Running Locally
