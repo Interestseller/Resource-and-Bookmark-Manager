@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Send, User, Loader2, ExternalLink } from 'lucide-react'
 
 // Gemini API
-const GEMINI_KEY = 'AQ.Ab8RN6LFDK4Nz_C5-zwZGz6BPKyKHA1ka0XKtnX-lXVCuGYNqg'
+const GEMINI_KEY = 'AQ.Ab8RN6LihB9wWaSDgqFXuQznK1dhqciJ20JQGr2kzdm0LrJnYw'
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${GEMINI_KEY}`
 const SYSTEM_PROMPT = 'You are OMEN, a helpful AI assistant embedded in a bookmark & resource manager app. Help users organize their resources, suggest tags, summarize links, and answer any general questions.'
 
