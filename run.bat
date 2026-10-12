@@ -1,5 +1,5 @@
 @echo off
-echo Starting Bookmark Manager...
+echo Starting Expense Tracker...
 cd /d "%~dp0"
 npm run dev
 pause
