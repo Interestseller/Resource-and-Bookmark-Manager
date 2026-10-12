@@ -169,20 +169,20 @@ The function is `async`, so it can be replaced with an LLM API call without chan
 ## Roadmap
 
 **Planned improvements**
-- [ ] Backend API and authentication (Supabase or Express + PostgreSQL)
-- [ ] Server-side page-title fetching
-- [ ] CSV import
-- [ ] Browser extension for one-click saving
-- [ ] Automated tests
-- [ ] Tag management page
+- Backend API and authentication (Supabase or Express + PostgreSQL)
+- Server-side page-title fetching
+- CSV import
+- Browser extension for one-click saving
+- Automated tests
+- Tag management page
 
 **Planned AI features**
-- [ ] Summarizer
-- [ ] AI tag generator
-- [ ] Semantic duplicate detection
-- [ ] Recommendation engine
-- [ ] Study roadmap
-- [ ] Natural-language search
+- Summarizer
+- AI tag generator
+- Semantic duplicate detection
+- Recommendation engine
+- Study roadmap
+- Natural-language search
 
 ## Contributing
 
