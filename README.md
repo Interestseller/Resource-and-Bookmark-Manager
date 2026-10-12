@@ -1,19 +1,64 @@
-# Bookmark & Resource Manager
+# 📚 Bookmark & Resource Manager
 
-## Overview
-Students and developers save hundreds of links and then can't find them. This app is a personal knowledge library: save resources, organize them with categories, tags and collections, track what you've read, and see your progress. It runs fully in the browser with no backend.
+> A personal knowledge library for students and developers. Save links, organize them, track what you've read, and actually find them again.
+
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-build-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+**No backend. No account. No setup beyond `npm install`.** Everything runs in your browser and your data stays on your device.
+
+<!-- Add your deployed link here if you have one -->
+<!-- **[Live Demo →](https://your-demo-url)** -->
+
+---
+
+## Table of Contents
+
+- [Why this exists](#why-this-exists)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Quick Start](#quick-start)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [How It Works](#how-it-works)
+- [Smart Categorization](#smart-categorization)
+- [Data Storage & Backup](#data-storage--backup)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Why this exists
+
+Most of us save hundreds of links across browser bookmarks, chats and notes, then can't find any of them when needed. This app turns that pile into a searchable, organized library with reading progress, so saved links get read instead of forgotten.
 
 ## Features
-- Add / edit / delete resources with validation and duplicate-URL detection
-- Auto-detected domain, favicon, title and type from the URL
-- **Smart Categorize** (local keyword engine) suggests category, type and tags
-- Search (title, URL, description, category, tags, notes, type), filters, 7 sort options
-- Grid and list views, details popup, personal notes
-- Favorites page, status tracking (To Read → In Progress → Completed), Archived
-- Collections with per-collection progress stats
-- Dashboard: stats, recently added, recently viewed, "You May Also Like"
-- Analytics: category donut, type bar, weekly line, status donut
-- JSON/CSV export, JSON import, light/dark mode, responsive (bottom nav on mobile)
+
+### Save & organize
+- Add, edit and delete resources with validation and **duplicate-URL detection**
+- **Auto-detection** of domain, favicon, title and resource type from the URL
+- **Smart Categorize**: a local keyword engine suggests a category, type and tags
+- Categories, tags and **collections** (with per-collection progress stats)
+- Personal notes on every resource
+
+### Find & browse
+- Search across title, URL, description, category, tags, notes and type
+- Filters and **7 sort options**
+- Grid and list views with a details popup
+- Favorites page and an Archived section
+
+### Track progress
+- Status workflow: **To Read → In Progress → Completed**
+- Dashboard with stats, recently added, recently viewed and **"You May Also Like"**
+- Analytics: category donut, type bar chart, weekly line chart, status donut
+
+### Everything else
+- JSON / CSV export and JSON import
+- Light and dark mode
+- Responsive layout with a bottom navigation bar on mobile
 
 ## Screenshots
 
@@ -43,53 +88,111 @@ Students and developers save hundreds of links and then can't find them. This ap
   </tr>
 </table>
 
-## Tech Stack
-React 18, Vite, React Router (HashRouter), Tailwind CSS v4, Recharts, Lucide React, localStorage.
+## Quick Start
 
-## Installation
-NodeJS : https://nodejs.org/en/download
-Requires Node.js 18+.
+**Prerequisite:** [Node.js 18+](https://nodejs.org/en/download)
+
 ```bash
+# 1. Install dependencies
 npm install
-OR
-double-click on "install.bat"
+
+# 2. Start the dev server
+npm run dev
 ```
 
-## Running Locally
-```bash
-double-click on "run.bat"  # then open the printed http://localhost:5173
-npm run dev                # then open the printed http://localhost:5173
-npm run build              # production build in /dist
-```
+Then open **http://localhost:5173**.
+
+> **Windows shortcut:** double-click `install.bat` to install, then `run.bat` to start the app.
+
+### Available scripts
+
+| Command           | What it does                              |
+| ----------------- | ----------------------------------------- |
+| `npm run dev`     | Starts the dev server with hot reload     |
+| `npm run build`   | Creates a production build in `/dist`     |
+
+## Tech Stack
+
+| Area      | Choice                                  |
+| --------- | --------------------------------------- |
+| UI        | React 18                                |
+| Build     | Vite                                    |
+| Routing   | React Router (`HashRouter`)             |
+| Styling   | Tailwind CSS v4                         |
+| Charts    | Recharts                                |
+| Icons     | Lucide React                            |
+| Storage   | Browser `localStorage`                  |
 
 ## Project Structure
+
 ```
 src/
-├── components/  Layout, ResourceCard, ResourceList, ResourceForm, Modal, ConfirmDialog, EmptyState, StatsCard, TagBadge, ResourceChart
-├── pages/       Dashboard, Resources (also Favorites), Collections, Analytics, SettingsPage
-├── hooks/       useLibrary.jsx – all state + actions (React Context)
-├── services/    metadataService.js, smartCategorize.js – swap for real APIs later
-├── utils/       constants, resource (data shape), storage (localStorage), stats (math)
-└── data/        sampleData.js
+├── components/   Layout, ResourceCard, ResourceList, ResourceForm, Modal,
+│                 ConfirmDialog, EmptyState, StatsCard, TagBadge, ResourceChart
+├── pages/        Dashboard, Resources (also Favorites), Collections,
+│                 Analytics, SettingsPage
+├── hooks/        useLibrary.jsx  → all state + actions (React Context)
+├── services/     metadataService.js, smartCategorize.js
+│                 (designed to be swapped for real APIs later)
+├── utils/        constants, resource (data shape), storage (localStorage),
+│                 stats (math)
+└── data/         sampleData.js   → demo data
 ```
 
 ## How It Works
-`LibraryProvider` (in `useLibrary.jsx`) holds `resources` and `collections`. Pages read them with `useLibrary()` and call actions like `saveResource`. Every change updates state, which re-renders the UI and charts and is auto-saved to localStorage.
+
+`LibraryProvider` (in `useLibrary.jsx`) holds `resources` and `collections`. Pages read them with the `useLibrary()` hook and call actions such as `saveResource`. Every change updates state, which re-renders the UI and charts, and is auto-saved to localStorage.
+
+```
+Page / Component ──► useLibrary() action ──► state update ──► UI + charts re-render
+                                                  │
+                                                  └──► storage.js ──► localStorage
+```
 
 ## Smart Categorization
-`services/smartCategorize.js` scores each category by how many of its keywords appear in the title, URL, description and notes, picks the best, detects the type from the URL/words, and suggests tags. The function is `async` so it can be replaced by an LLM API call without changing the form.
 
-## Data Storage
-`utils/storage.js` is the only file that touches localStorage (key `rm_data_v1`). Corrupted data falls back to demo data. Replace it with API calls to move to a database.
+`services/smartCategorize.js` scores each category by how many of its keywords appear in the resource's title, URL, description and notes. It then:
 
-## Future Improvements
-Backend API + auth (Supabase / Express + PostgreSQL), real page-title fetching on the server, CSV import, browser extension, tests, tag management page.
+1. Picks the highest-scoring category
+2. Detects the resource type from the URL and wording
+3. Suggests relevant tags
 
-## AI Features Planned
-Summarizer, AI tag generator, semantic duplicate detection, recommendation engine, study roadmap, natural-language search.
+The function is `async`, so it can be replaced with an LLM API call without changing the form that uses it.
+
+## Data Storage & Backup
+
+- All data lives in your browser's `localStorage` under the key `rm_data_v1`. Nothing is sent to a server.
+- `utils/storage.js` is the **only** file that touches `localStorage`. To move to a database, replace it with API calls.
+- If stored data is corrupted, the app falls back to the demo data.
+- Clearing browser data erases your library, so **use Export (JSON/CSV) from Settings for backups**, and JSON import to restore.
+
+## Roadmap
+
+**Planned improvements**
+- [ ] Backend API and authentication (Supabase or Express + PostgreSQL)
+- [ ] Server-side page-title fetching
+- [ ] CSV import
+- [ ] Browser extension for one-click saving
+- [ ] Automated tests
+- [ ] Tag management page
+
+**Planned AI features**
+- [ ] Summarizer
+- [ ] AI tag generator
+- [ ] Semantic duplicate detection
+- [ ] Recommendation engine
+- [ ] Study roadmap
+- [ ] Natural-language search
 
 ## Contributing
-Fork, create a feature branch, commit with clear messages, open a pull request.
+
+Contributions are welcome.
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Commit with clear messages
+4. Push and open a pull request
 
 ## License
-MIT – see `LICENSE`.
+
+Released under the MIT License. See [`LICENSE`](./LICENSE).
